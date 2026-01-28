@@ -1,0 +1,38 @@
+{
+  "manifest_version": 3,
+  "name": "PromptSafe",
+  "version": "1.1.0",
+  "description": "PromptSafe automatically saves what you’re typing in AI chat apps like ChatGPT, Gemini, and Perplexity, so that you never lose a carefully written prompt to a refresh, tab close, or accidental navigation.",
+  "permissions": [
+    "storage"
+  ],
+  "host_permissions": [
+    "*://chatgpt.com/*",
+    "*://gemini.google.com/*",
+    "*://www.perplexity.ai/*"
+  ],
+  "icons": {
+    "16": "promptsafelogo.png",
+    "48": "promptsafelogo.png",
+    "128": "promptsafelogo.png"
+  },
+  "action": {
+    "default_icon": "promptsafelogo.png"
+  },
+  "content_scripts": [
+    {
+      "matches": [
+        "*://chatgpt.com/*",
+        "*://gemini.google.com/*",
+        "*://www.perplexity.ai/*"
+      ],
+      "js": [
+        "content.js"
+      ],
+      "css": [
+        "styles.css"
+      ],
+      "run_at": "document_idle"
+    }
+  ]
+}
